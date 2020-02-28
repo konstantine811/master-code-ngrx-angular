@@ -14,10 +14,8 @@ import { CustomersEffects } from './customers/customers.effects';
     NxModule.forRoot(),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
-    EffectsModule.forRoot([
-      CustomersEffects
-    ]),
+    EffectsModule.forRoot([CustomersEffects])
   ],
   declarations: []
 })
-export class StateModule { }
+export class StateModule {}
