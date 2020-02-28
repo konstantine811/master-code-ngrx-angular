@@ -50,6 +50,32 @@ export const initialState: ProjectsState = {
 // 03 Build the MOST simplest reducer
 export function projectsReducer(state = initialState, action): ProjectsState {
   switch (action.type) {
+    case 'select':
+      return {
+        selectedProjectId: action.payload,
+        projects: state.projects
+      };
+    case 'create':
+      // delegate to a stand alone function
+      // BECAUSE IT IS TASTABLE
+      return {
+        selectedProjectId: state.selectedProjectId,
+        projects: createProject(state.projects, action.payload)
+      };
+    case 'update':
+      // delegate to a stand alone function
+      // BECAUSE IT IS TASTABLE
+      return {
+        selectedProjectId: state.selectedProjectId,
+        projects: updateProject(state.projects, action.payload)
+      };
+    case 'delete':
+      // delegate to a stand alone function
+      // BECAUSE IT IS TASTABLE
+      return {
+        selectedProjectId: state.selectedProjectId,
+        projects: deleteProject(state.projects, action.payload)
+      };
     default:
       return state;
   }
